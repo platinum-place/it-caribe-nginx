@@ -1,0 +1,16 @@
+services:
+  nginx:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: nginx:latest
+    container_name: it-caribe-nginx
+    ports:
+      - "8000:80"
+    restart: unless-stopped
+    networks:
+      - it-caribe-network
+
+networks:
+  it-caribe-network:
+    external: true
