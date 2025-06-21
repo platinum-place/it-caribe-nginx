@@ -8,6 +8,8 @@ services:
     ports:
       - "80:80"
     restart: unless-stopped
+    volumes:
+      - ../it-caribe-backend:/var/www
     networks:
       - it-caribe-network
 
