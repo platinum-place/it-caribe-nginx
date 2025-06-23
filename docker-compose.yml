@@ -1,15 +1,12 @@
 services:
   nginx:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    image: nginx:latest
-    container_name: it-caribe-nginx
+    image: docker.io/bitnami/nginx:1.28
     ports:
-      - "80:80"
+      - '80:8080'
+    container_name: it-caribe-nginx
     restart: unless-stopped
     volumes:
-      - ../it-caribe-backend:/var/www
+      - ./conf/app.conf:/opt/bitnami/nginx/conf/server_blocks/app.conf:ro
     networks:
       - it-caribe-network
 
